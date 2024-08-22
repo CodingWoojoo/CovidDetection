@@ -16,7 +16,6 @@
       "dest": "app.py"
     }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "src/app.js" }],
   "headers": [
     {
       "source": "/(.*)",
