@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Classification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+</head>
+<script>
+    function fileValue(value) {
+        var path = value.value;
+        var extension = path.split('.').pop();
+        if (extension == "jpg" || extension == "svg" || extension == "jpeg" || extension == "png" || extension == "gif") {
+            document.getElementById('image-preview').src = window.URL.createObjectURL(value.files[0]);
+            var filename = path.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.');
+            document.getElementById("filename").innerHTML = filename;
+        } else {
+            alert("File not supported. Please upload an image in JPG, PNG, SVG, or GIF format.");
+        }
+    }
+</script>
+<body>
+    <div class="container-fluid height-full">
+        <div class="container">
+            <h1 class="jumbotron text-center bg-primary">Covid-19 Detection Portal</h1>
+            <br><br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 example-container">
+                    <!-- IMAGE UPLOAD -->
+                    <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">                
+                        <div class="image-upload">
+                            <input type="file" name="image_input" id="pwd" onchange="fileValue(this)">
+                            <label for="pwd" class="upload-field" id="file-label">
+                                <div class="file-thumbnail">
+                                    <!-- Initial image shown before upload -->
+                                    <img id="image-preview" src="{{ url_for('static', filename=image if image else '..Covid.png') }}" alt="Initial Image">
+                                    <h2 id="filename">Drag or Drop patient's Chest's CT Scan</h2>
+                                    <h3>Supports JPG, PNG, SVG</h3>
+                                    <h2>Your Prediction: <i>{{ prediction }}</i></h2>
+                                    <h2>Model Accuracy: <i>{{ accuracy }}</i></h2>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Start Test</button>
+                        </div>
+                    </form>                    
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 example-container">
+                    <div class="example">
+                        <h3 class="text-center">Image Example</h3>
+                    </div>
+                    <div class="img-example">
+                        <img src="https://els-jbs-prod-cdn.jbs.elsevierhealth.com/cms/attachment/7b737a97-aa16-43ec-bccb-52116d53cb1d/gr1.jpg" alt="Example Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

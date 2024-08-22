@@ -1,0 +1,158 @@
+body,
+html {
+    height: 100%;
+
+}
+
+.container-fluid {
+    background-image: url("https://cdn.the-scientist.com/assets/articleNo/67625/hImg/38177/ct-scan-l.webp");
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+}
+
+.container {
+    margin-top: 3%;
+    background-color: #1e70a39c;
+    height: 90%;
+
+}
+
+/* IMAGE UPLOAD*/
+
+.image-upload {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.img-example {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.image-upload input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+.upload-field {
+    display: block;
+    background: #F4FAFE;
+    padding: 12px;
+    border-radius: 11px;
+
+}
+
+.upload-field .file-thumbnail {
+    cursor: pointer;
+    border: 1px dashed #BBD9EC;
+    border-radius: 11px;
+    text-align: center;
+    padding: 20px;
+}
+
+.upload-field .file-thumbnail img {
+    width: 400px;
+    background-image: url("https://cdn.the-scientist.com/assets/articleNo/67625/hImg/38177/ct-scan-l.webp");
+
+}
+
+.upload-field .file-thumbnail h2 {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.upload-field .file-thumbnail h3 {
+    font-size: 17px;
+    color: #9ABCD1;
+    margin-bottom: 0;
+}
+
+.text-center {
+    margin-top: 3%;
+}
+
+.text-center .btn {
+    background-color: #0f106d;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 9px 19px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.text-center {
+    margin-top: 7%;
+
+}
+  
+.example-container {
+    background-color: #F4FAFE;
+    height: 500px;
+    width: 200px;
+}
+
+
+/* .file-thumbnail {
+	width: 10em;
+	text-align: center;
+	padding: 6px 2px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	margin: auto;
+	border: dashed .25em rgb(90, 85, 85);
+	transform: translate(-50%);
+} */
+
+.file-thumbnail::after {
+	content: '';
+	background: red;
+	height: 0.25em;
+	width: 29em;
+	/* display: block; */
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	opacity: 7;
+	z-index: 1;
+	animation: 1.5s ease-in-out roll;
+    margin-top: 30px;
+}
+
+.file-thumbnail img {
+	height: 300px;
+	width: 98%;
+}
+
+#image-preview {
+    background-image: url("https://www.btklsby.go.id/images/placeholder/basic.png");
+    height: 250px;
+}
+@keyframes roll {
+	0% {
+		transform: translateY(-50px);
+	}
+	50% {
+		transform: translateY(400px);
+	}
+	100% {
+		transform: translateY(-100px);
+	}
+}
