@@ -4,3 +4,4 @@ data_set
 env
 venv
 /api/__pycache__
+.vercel
