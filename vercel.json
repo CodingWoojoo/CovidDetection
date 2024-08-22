@@ -1,15 +1,26 @@
 {
     "version": 2,
-    "build": [
+    "builds": [
         {
-            "src": "index.py",
+            "src": "./index.py",
             "use": "@vercel/python"
         }
     ],
-    "routes": [
+    "rewrites": [
+        { "source": "/(.*)", "destination": "src/app.js" }
+    ],
+    "headers": [
         {
-            "src": "/(.*)",
-            "dest": "index.py"
-        }
+          "source": "/(.*)",
+          "headers": [
+            { "key": "Access-Control-Allow-Origin", "value": "*" }
+          ]
+        },
+        {
+          "source": "/vercel_app_domain_name/(.*)",
+          "headers": [
+            { "key": "Access-Control-Allow-Origin", "value": "*" }
+          ]
+        }  
     ]
 }
