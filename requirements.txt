@@ -9,7 +9,7 @@ absl-py
 appnope==0.1.2
 argon2-cffi==21.1.0
 astunparse==1.6.3
-attrs==21.2.0
+attrs
 autopep8==1.6.0
 backcall==0.2.0
 beautifulsoup4==4.10.0
